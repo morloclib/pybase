@@ -5,3 +5,6 @@ source "py" from "pybase.py" (
 
 packGeneric   py :: packs   => a    -> JSON;
 unpackGeneric py :: unpacks => JSON -> a;
+
+packDataFrame   py :: packs   => DataFrame -> JSON;
+unpackDataFrame py :: unpacks => JSON      -> DataFrame;
