@@ -1,6 +1,8 @@
 source "py" from "pybase.py" (
-   "unpackGeneric"
- , "packGeneric"
+   "packGeneric"
+ , "unpackGeneric"
+ , "packDataFrame"
+ , "unpackDataFrame"
 )
 
 packGeneric   py :: packs   => a    -> JSON;
