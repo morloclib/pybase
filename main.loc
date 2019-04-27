@@ -3,6 +3,8 @@ source "py" from "pybase.py" (
  , "unpackGeneric"
  , "packDataFrame"
  , "unpackDataFrame"
+ , "packMatrix"
+ , "unpackMatrix"
 )
 
 packGeneric   py :: packs   => a    -> JSON;
@@ -10,3 +12,6 @@ unpackGeneric py :: unpacks => JSON -> a;
 
 packDataFrame   py :: packs   => DataFrame -> JSON;
 unpackDataFrame py :: unpacks => JSON      -> DataFrame;
+
+packMatrix   py :: packs   => Matrix -> JSON;
+unpackMatrix py :: unpacks => JSON   -> Matrix;

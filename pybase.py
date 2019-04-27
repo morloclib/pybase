@@ -10,3 +10,11 @@ def unpackDataFrame(df):
 
 def packDataFrame(json):
     return(pd.read_json(json))
+
+#  JSON -> Matrix
+def unpackMatrix(x):
+    return(np.matrix(j.loads(x)))
+
+#  Matrix -> JSON
+def packMatrix(x):
+    return(j.dumps(x.tolist()))
