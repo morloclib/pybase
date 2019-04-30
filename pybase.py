@@ -29,8 +29,8 @@ def unpackDataFrame(json):
 
 #  JSON -> Matrix
 def unpackMatrix(x):
-    return(np.matrix(j.loads(x)))
+    return(np.matrix(json.loads(x)))
 
 #  Matrix -> JSON
 def packMatrix(x):
-    return(j.dumps(x.tolist()))
+    return(json.dumps(x.tolist()))
