@@ -7,11 +7,13 @@ source "py" from "pybase.py" (
  , "unpackMatrix"
 )
 
-packGeneric   py :: packs   => a    -> JSON;
-unpackGeneric py :: unpacks => JSON -> a;
+# JSON is a "str" type
 
-packDataFrame   py :: packs   => DataFrame -> JSON;
-unpackDataFrame py :: unpacks => JSON      -> DataFrame;
+packGeneric   py :: packs   => a -> "str";
+unpackGeneric py :: unpacks => "str" -> a;
 
-packMatrix   py :: packs   => Matrix a m n -> JSON;
-unpackMatrix py :: unpacks => JSON         -> Matrix a m n;
+packDataFrame   py :: packs   => "pandas.DataFrame" -> "str";
+unpackDataFrame py :: unpacks => "str" -> "pandas.DataFrame";
+
+packMatrix   py :: packs   => "numpy.matrix" -> "str";
+unpackMatrix py :: unpacks => "str" -> "numpy.matrix";
