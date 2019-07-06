@@ -1,3 +1,15 @@
+source "py" from "core.py" (
+    "map" as map 
+    "map" as zipWith
+    "fold" 
+    "enumerateWith"
+)
+
+map :: (a -> b), [a] -> b;
+zipWith :: (a, b -> c), [a], [b] -> [c];
+fold :: (b, a -> b), b, [a] -> b;
+enumerateWith :: (a, Int -> b), [a] -> [b];
+
 source "py" from "pybase.py" (
    "packGeneric"
  , "unpackGeneric"
