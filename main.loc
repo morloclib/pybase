@@ -1,3 +1,5 @@
+module pybase {
+
 source "py" from "core.py" (
    "map" as map 
  , "map" as zipWith
@@ -37,3 +39,5 @@ unpackDataFrame py :: unpacks => "str" -> "pandas.DataFrame";
 
 packMatrix   py :: packs   => "numpy.matrix" -> "str";
 unpackMatrix py :: unpacks => "str" -> "numpy.matrix";
+
+}
