@@ -11,10 +11,10 @@ source "py" from "core.py" (
  , "div"
 )
 
-map :: (a -> b) -> [a] -> b;
-zipWith :: (a -> b -> c) -> [a] -> [b] -> [c];
-fold :: (b -> a -> b) -> b -> [a] -> b;
-enumerateWith :: (a -> Int -> b) -> [a] -> [b];
+map :: forall a b . (a -> b) -> [a] -> b;
+zipWith :: forall a b c . (a -> b -> c) -> [a] -> [b] -> [c];
+fold :: forall a b . (b -> a -> b) -> b -> [a] -> b;
+enumerateWith :: forall a b . (a -> Int -> b) -> [a] -> [b];
 add :: Num -> Num -> Num;
 sub :: Num -> Num -> Num;
 mul :: Num -> Num -> Num;
@@ -31,8 +31,8 @@ source "py" from "pybase.py" (
 
 -- JSON is a "str" type
 
-packGeneric   py :: packs   => a -> "str";
-unpackGeneric py :: unpacks => "str" -> a;
+packGeneric   py :: packs   => forall a . a -> "str";
+unpackGeneric py :: unpacks => forall a . "str" -> a;
 
 packDataFrame   py :: packs   => "pandas.DataFrame" -> "str";
 unpackDataFrame py :: unpacks => "str" -> "pandas.DataFrame";
