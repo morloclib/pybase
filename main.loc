@@ -1,6 +1,6 @@
 module pybase {
 
-source "py" from "core.py" (
+source py from "core.py" (
    "map" as map 
  , "map" as zipWith
  , "fold" 
@@ -20,7 +20,7 @@ sub :: Num -> Num -> Num;
 mul :: Num -> Num -> Num;
 div :: Num -> Num -> Num;
 
-source "py" from "pybase.py" (
+source py from "pybase.py" (
    "packGeneric"
  , "unpackGeneric"
  , "packDataFrame"
