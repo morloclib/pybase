@@ -11,6 +11,15 @@ source py from "core.py" (
  , "div"
 )
 
+export map
+export zipWith
+export fold
+export enumerateWith
+export add
+export sub
+export mul
+export div
+
 map :: forall a b . (a -> b) -> [a] -> b;
 zipWith :: forall a b c . (a -> b -> c) -> [a] -> [b] -> [c];
 fold :: forall a b . (b -> a -> b) -> b -> [a] -> b;
