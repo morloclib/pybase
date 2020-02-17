@@ -5,6 +5,9 @@ import numpy as np
 unpackGeneric = json.loads
 packGeneric = json.dumps
 
+unpackList = json.loads
+packList = json.dumps
+
 def packDataFrame(df):
     return(df.to_json(orient="table"))
 #### example format for a character count table

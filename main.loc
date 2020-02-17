@@ -1,9 +1,9 @@
 module pybase {
 
 source py from "core.py" (
-   "map" as map 
+   "map" as map
  , "map" as zipWith
- , "fold" 
+ , "fold"
  , "enumerateWith"
  , "add"
  , "sub"
@@ -20,18 +20,36 @@ export sub
 export mul
 export div
 
-map :: forall a b . (a -> b) -> [a] -> b;
-zipWith :: forall a b c . (a -> b -> c) -> [a] -> [b] -> [c];
-fold :: forall a b . (b -> a -> b) -> b -> [a] -> b;
-enumerateWith :: forall a b . (a -> Int -> b) -> [a] -> [b];
-add :: Num -> Num -> Num;
-sub :: Num -> Num -> Num;
-mul :: Num -> Num -> Num;
-div :: Num -> Num -> Num;
+map    :: forall a b . (a -> b) -> [a] -> b;
+map py :: forall a b . (a -> b) -> list a -> b;
+
+zipWith    :: forall a b c . (a -> b -> c) -> [a] -> [b] -> [c];
+zipWith py :: forall a b c . (a -> b -> c) -> list a -> list b -> list c;
+
+fold    :: forall a b . (b -> a -> b) -> b -> [a] -> b;
+fold py :: forall a b . (b -> a -> b) -> b -> list a -> b;
+
+enumerateWith    :: forall a b . (a -> Int -> b) -> [a] -> [b];
+enumerateWith py :: forall a b . (a -> int -> b) -> list a -> list b;
+
+add    :: Num   -> Num   -> Num;
+add py :: float -> float -> float;
+
+sub    :: Num   -> Num   -> Num;
+sub py :: float -> float -> float;
+
+mul    :: Num   -> Num   -> Num;
+mul py :: float -> float -> float;
+
+div    :: Num   -> Num   -> Num;
+div py :: float -> float -> float;
+
 
 source py from "pybase.py" (
    "packGeneric"
  , "unpackGeneric"
+ , "packList"
+ , "unpackList"
  , "packDataFrame"
  , "unpackDataFrame"
  , "packMatrix"
@@ -48,5 +66,8 @@ unpackDataFrame py :: unpacks => "str" -> "pandas.DataFrame";
 
 packMatrix   py :: packs   => "numpy.matrix" -> "str";
 unpackMatrix py :: unpacks => "str" -> "numpy.matrix";
+
+packList   py :: packs   => forall a . list a -> "str";
+unpackList py :: unpacks => forall a . "str" -> list a;
 
 }
