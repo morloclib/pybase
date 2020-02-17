@@ -1,14 +1,14 @@
 module pybase {
 
 source py from "core.py" (
-   "map" as map
- , "map" as zipWith
- , "fold"
- , "enumerateWith"
- , "add"
- , "sub"
- , "mul"
- , "div"
+   "map" as mlc_map
+ , "map" as mlc_zipWith
+ , "fold" as mlc_fold
+ , "enumerateWith" as mlc_enumerateWith
+ , "add" as mlc_add
+ , "sub" as mlc_sub
+ , "mul" as mlc_mul
+ , "div" as mlc_div
 )
 
 export map
