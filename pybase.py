@@ -5,8 +5,15 @@ import numpy as np
 unpackGeneric = json.loads
 packGeneric = json.dumps
 
-unpackList = json.loads
-packList = json.dumps
+
+def packList(x):
+  return json.dumps(list(x))
+
+def unpackList(x):
+  return json.loads(x)
+
+packFloatList = packList
+unpackFloatList = unpackList
 
 def packDataFrame(df):
     return(df.to_json(orient="table"))

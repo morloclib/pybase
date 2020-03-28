@@ -1,14 +1,14 @@
 module pybase {
 
 source py from "core.py" (
-   "map" as mlc_map
- , "map" as mlc_zipWith
- , "fold" as mlc_fold
- , "enumerateWith" as mlc_enumerateWith
- , "add" as mlc_add
- , "sub" as mlc_sub
- , "mul" as mlc_mul
- , "div" as mlc_div
+   "mlc_map" as map
+ , "mlc_map" as zipWith
+ , "mlc_fold" as fold
+ , "mlc_enumerateWith" as enumerateWith
+ , "mlc_add" as add
+ , "mlc_sub" as sub
+ , "mlc_mul" as mul
+ , "mlc_div" as div
 )
 
 export map
@@ -48,8 +48,8 @@ div py :: float -> float -> float;
 source py from "pybase.py" (
    "packGeneric"
  , "unpackGeneric"
- , "packList"
- , "unpackList"
+ , "packFloatList"
+ , "unpackFloatList"
  , "packDataFrame"
  , "unpackDataFrame"
  , "packMatrix"
@@ -64,10 +64,10 @@ unpackGeneric py :: unpacks => forall a . "str" -> a;
 packDataFrame   py :: packs   => "pandas.DataFrame" -> "str";
 unpackDataFrame py :: unpacks => "str" -> "pandas.DataFrame";
 
-packMatrix   py :: packs   => "numpy.matrix" -> "str";
-unpackMatrix py :: unpacks => "str" -> "numpy.matrix";
+packMatrix   py :: packs   => forall a . "numpy.matrix" a -> "str";
+unpackMatrix py :: unpacks => forall a . "str" -> "numpy.matrix" a;
 
-packList   py :: packs   => forall a . list a -> "str";
-unpackList py :: unpacks => forall a . "str" -> list a;
+packFloatList   py :: packs   => list float -> "str";
+unpackFloatList py :: unpacks => "str" -> list float;
 
 }
