@@ -50,10 +50,10 @@ source py from "pybase.py" (
  , "unpackGeneric"
  , "packFloatList"
  , "unpackFloatList"
- , "packDataFrame"
- , "unpackDataFrame"
- , "packMatrix"
- , "unpackMatrix"
+ -- , "packDataFrame"
+ -- , "unpackDataFrame"
+ -- , "packMatrix"
+ -- , "unpackMatrix"
 )
 
 -- JSON is a "str" type
@@ -61,11 +61,11 @@ source py from "pybase.py" (
 packGeneric   py :: packs   => forall a . a -> "str";
 unpackGeneric py :: unpacks => forall a . "str" -> a;
 
-packDataFrame   py :: packs   => "pandas.DataFrame" -> "str";
-unpackDataFrame py :: unpacks => "str" -> "pandas.DataFrame";
-
-packMatrix   py :: packs   => forall a . "numpy.matrix" a -> "str";
-unpackMatrix py :: unpacks => forall a . "str" -> "numpy.matrix" a;
+-- packDataFrame   py :: packs   => "pandas.DataFrame" -> "str";
+-- unpackDataFrame py :: unpacks => "str" -> "pandas.DataFrame";
+--
+-- packMatrix   py :: packs   => forall a . "numpy.matrix" a -> "str";
+-- unpackMatrix py :: unpacks => forall a . "str" -> "numpy.matrix" a;
 
 packFloatList   py :: packs   => list float -> "str";
 unpackFloatList py :: unpacks => "str" -> list float;
