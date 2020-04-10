@@ -19,7 +19,5 @@ def mlc_mul(a,b):
 def mlc_div(a,b):
   return a/b
 
-mlc_map = map
-
-def mlc_map(f, xs):
-  return list(map(f, xs))
+def mlc_map(f, *args):
+  return list(map(f, *args))
