@@ -20,17 +20,17 @@ export sub
 export mul
 export div
 
-map    :: forall a b . (a -> b) -> [a] -> b;
-map py :: forall a b . (a -> b) -> list a -> b;
+map    :: forall a b . (a -> b) -> [a] -> [b];
+map py :: forall a b . (a -> b) -> [a] -> [b];
 
 zipWith    :: forall a b c . (a -> b -> c) -> [a] -> [b] -> [c];
-zipWith py :: forall a b c . (a -> b -> c) -> list a -> list b -> list c;
+zipWith py :: forall a b c . (a -> b -> c) -> [a] -> [b] -> [c];
 
 fold    :: forall a b . (b -> a -> b) -> b -> [a] -> b;
-fold py :: forall a b . (b -> a -> b) -> b -> list a -> b;
+fold py :: forall a b . (b -> a -> b) -> b -> [a] -> b;
 
 enumerateWith    :: forall a b . (a -> Int -> b) -> [a] -> [b];
-enumerateWith py :: forall a b . (a -> int -> b) -> list a -> list b;
+enumerateWith py :: forall a b . (a -> int -> b) -> [a] -> [b];
 
 add    :: Num   -> Num   -> Num;
 add py :: float -> float -> float;
