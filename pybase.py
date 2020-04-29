@@ -1,7 +1,7 @@
 import json
 
 """
-("tuple", [("float", None), ("record", dict(a=("float", None)))])
+("tuple", [("float", None), ("record", OrderedDict(a=("float", None)))])
 """
 
 def pack_list(x, schema):
@@ -17,9 +17,9 @@ def pack_tuple(x, schema):
 
 def pack_record(x, schema):
   entries = []
-  for (t, (k, v)) in zip(schema.values(), x.items()):
-    f = dispatch[t[0]]
-    entries.append("{}={}".format(k, f(v, t[1])))
+  for (k,t) in schema.items():
+    f = dispatch[t[0]] 
+    entries.append("{}={}".format(k, f(x[k], t[1])))
   return "{{{}}}".format(",".join(entries))
 
 def pack_float(x, schema):
