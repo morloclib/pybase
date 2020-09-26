@@ -20,29 +20,29 @@ export sub
 export mul
 export div
 
-map    :: forall a b . (a -> b) -> [a] -> [b];
-map py :: forall a b . (a -> b) -> [a] -> [b];
+map    :: (a -> b) -> [a] -> [b];
+map py :: (a -> b) -> [a] -> [b];
 
-zipWith    :: forall a b c . (a -> b -> c) -> [a] -> [b] -> [c];
-zipWith py :: forall a b c . (a -> b -> c) -> [a] -> [b] -> [c];
+zipWith    :: (a -> b -> c) -> [a] -> [b] -> [c];
+zipWith py :: (a -> b -> c) -> [a] -> [b] -> [c];
 
-fold    :: forall a b . (b -> a -> b) -> b -> [a] -> b;
-fold py :: forall a b . (b -> a -> b) -> b -> [a] -> b;
+fold    :: (b -> a -> b) -> b -> [a] -> b;
+fold py :: (b -> a -> b) -> b -> [a] -> b;
 
-enumerateWith    :: forall a b . (a -> Int -> b) -> [a] -> [b];
-enumerateWith py :: forall a b . (a -> int -> b) -> [a] -> [b];
+enumerateWith    :: (a -> Int -> b) -> [a] -> [b];
+enumerateWith py :: (a -> int -> b) -> [a] -> [b];
 
 add    :: Num   -> Num   -> Num;
-add py :: float -> float -> float;
+add py :: "float" -> "float" -> "float";
 
 sub    :: Num   -> Num   -> Num;
-sub py :: float -> float -> float;
+sub py :: "float" -> "float" -> "float";
 
 mul    :: Num   -> Num   -> Num;
-mul py :: float -> float -> float;
+mul py :: "float" -> "float" -> "float";
 
 div    :: Num   -> Num   -> Num;
-div py :: float -> float -> float;
+div py :: "float" -> "float" -> "float";
 
 
 source py from "pybase.py" ("pack", "unpack")
