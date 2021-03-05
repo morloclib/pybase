@@ -1,4 +1,4 @@
-module pybase {
+module pybase
 
 source py from "core.py" (
    "mlc_id" as id
@@ -22,34 +22,34 @@ export sub
 export mul
 export div
 
-type py Num = "float";
+type py Num = "float"
 
-id    :: a -> a;
-id py :: a -> a;
+id    :: a -> a
+id py :: a -> a
 
-map    :: (a -> b) -> [a] -> [b];
-map py :: (a -> b) -> [a] -> [b];
+map    :: (a -> b) -> [a] -> [b]
+map py :: (a -> b) -> [a] -> [b]
 
-zipWith    :: (a -> b -> c) -> [a] -> [b] -> [c];
-zipWith py :: (a -> b -> c) -> [a] -> [b] -> [c];
+zipWith    :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith py :: (a -> b -> c) -> [a] -> [b] -> [c]
 
-fold    :: (b -> a -> b) -> b -> [a] -> b;
-fold py :: (b -> a -> b) -> b -> [a] -> b;
+fold    :: (b -> a -> b) -> b -> [a] -> b
+fold py :: (b -> a -> b) -> b -> [a] -> b
 
-enumerateWith    :: (a -> Int -> b) -> [a] -> [b];
-enumerateWith py :: (a -> int -> b) -> [a] -> [b];
+enumerateWith    :: (a -> Int -> b) -> [a] -> [b]
+enumerateWith py :: (a -> int -> b) -> [a] -> [b]
 
-add    :: Num -> Num -> Num;
-add py :: Num -> Num -> Num;
+add    :: Num -> Num -> Num
+add py :: Num -> Num -> Num
 
-sub    :: Num -> Num -> Num;
-sub py :: Num -> Num -> Num;
+sub    :: Num -> Num -> Num
+sub py :: Num -> Num -> Num
 
-mul    :: Num -> Num -> Num;
-mul py :: Num -> Num -> Num;
+mul    :: Num -> Num -> Num
+mul py :: Num -> Num -> Num
 
-div    :: Num ->  Num -> Num;
-div py :: Num ->  Num -> Num;
+div    :: Num ->  Num -> Num
+div py :: Num ->  Num -> Num
 
 
 -------------------------------------------------------------------------------
@@ -64,15 +64,13 @@ source py from "data.py" (
   , "morloc_unpackMap" as unpackMap
 )
 
-export Map;
+export Map
 
-type py (Map key val) = "dict" key val;
+type py (Map key val) = "dict" key val
 
 -- These do not need to be exported (and indeed should not be)
-packMap :: pack => ([key],[val]) -> Map key val;
-packMap py :: pack => ([key],[val]) -> "dict" key val;
+packMap :: pack => ([key],[val]) -> Map key val
+packMap py :: pack => ([key],[val]) -> "dict" key val
 
-unpackMap :: unpack => Map key val -> ([key],[val]);
-unpackMap py :: unpack => "dict" key val -> ([key],[val]);
-
-}
+unpackMap :: unpack => Map key val -> ([key],[val])
+unpackMap py :: unpack => "dict" key val -> ([key],[val])
