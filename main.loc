@@ -1,7 +1,7 @@
 module pybase
 
-source py from "core.py" (
-   "mlc_id" as id
+source py from "core.py"
+ ( "mlc_id" as id
  , "mlc_map" as map
  , "mlc_map" as zipWith
  , "mlc_fold" as fold
@@ -10,7 +10,7 @@ source py from "core.py" (
  , "mlc_sub" as sub
  , "mlc_mul" as mul
  , "mlc_div" as div
-)
+ )
 
 export id
 export map
@@ -59,10 +59,10 @@ div py :: Num ->  Num -> Num
 -- be exported.
 -------------------------------------------------------------------------------
 
-source py from "data.py" (
-    "morloc_packMap" as packMap
-  , "morloc_unpackMap" as unpackMap
-)
+source py from "data.py"
+ ( "morloc_packMap" as packMap
+ , "morloc_unpackMap" as unpackMap
+ )
 
 export Map
 
