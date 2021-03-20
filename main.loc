@@ -1,5 +1,7 @@
 module pybase
 
+import conventions
+
 source py from "core.py"
  ( "mlc_id" as id
  , "mlc_map" as map
@@ -24,31 +26,22 @@ export div
 
 type py Num = "float"
 
-id    :: a -> a
 id py :: a -> a
 
-map    :: (a -> b) -> [a] -> [b]
 map py :: (a -> b) -> [a] -> [b]
 
-zipWith    :: (a -> b -> c) -> [a] -> [b] -> [c]
 zipWith py :: (a -> b -> c) -> [a] -> [b] -> [c]
 
-fold    :: (b -> a -> b) -> b -> [a] -> b
 fold py :: (b -> a -> b) -> b -> [a] -> b
 
-enumerateWith    :: (a -> Int -> b) -> [a] -> [b]
 enumerateWith py :: (a -> int -> b) -> [a] -> [b]
 
-add    :: Num -> Num -> Num
 add py :: Num -> Num -> Num
 
-sub    :: Num -> Num -> Num
 sub py :: Num -> Num -> Num
 
-mul    :: Num -> Num -> Num
 mul py :: Num -> Num -> Num
 
-div    :: Num ->  Num -> Num
 div py :: Num ->  Num -> Num
 
 
