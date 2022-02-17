@@ -24,7 +24,8 @@ export sub
 export mul
 export div
 
-type py Num = "float"
+type py Real = "float"
+type py Int = "int"
 
 id py :: a -> a
 
@@ -34,15 +35,15 @@ zipWith py :: (a -> b -> c) -> [a] -> [b] -> [c]
 
 fold py :: (b -> a -> b) -> b -> [a] -> b
 
-enumerateWith py :: (a -> int -> b) -> [a] -> [b]
+enumerateWith py :: (a -> Int -> b) -> [a] -> [b]
 
-add py :: Num -> Num -> Num
+add py :: Real -> Real -> Real
 
-sub py :: Num -> Num -> Num
+sub py :: Real -> Real -> Real
 
-mul py :: Num -> Num -> Num
+mul py :: Real -> Real -> Real
 
-div py :: Num ->  Num -> Num
+div py :: Real ->  Real -> Real
 
 
 -------------------------------------------------------------------------------
