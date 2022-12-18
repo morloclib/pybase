@@ -24,8 +24,15 @@ export sub
 export mul
 export div
 
+export Real
+export Int
+export Str
+export Bool
+
 type py Real = "float"
 type py Int = "int"
+type py Str = "str"
+type py Bool = "bool"
 
 id py :: a -> a
 
