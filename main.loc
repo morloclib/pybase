@@ -4,7 +4,7 @@ import conventions
 
 source py from "core.py"
  ( "mlc_id" as id
- , "mlc_at", as at
+ , "mlc_at" as at
  , "mlc_map" as map
  , "mlc_map" as zipWith
  , "mlc_fold" as fold
