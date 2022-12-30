@@ -4,6 +4,7 @@ import conventions
 
 source py from "core.py"
  ( "mlc_id" as id
+ , "mlc_at", as at
  , "mlc_map" as map
  , "mlc_map" as zipWith
  , "mlc_fold" as fold
@@ -15,6 +16,7 @@ source py from "core.py"
  )
 
 export id
+export at
 export map
 export zipWith
 export fold
@@ -35,6 +37,8 @@ type py Str = "str"
 type py Bool = "bool"
 
 id py :: a -> a
+
+at py :: Int -> [a] -> a
 
 map py :: (a -> b) -> [a] -> [b]
 

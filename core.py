@@ -1,6 +1,9 @@
 def mlc_id(x):
   return x
 
+def mlc_at(i, xs):
+  return xs[i]
+
 def mlc_enumerateWith(f, xs):
   for (x,i) in enumerate(xs):
     yield f(x,i)
