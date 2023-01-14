@@ -1,3 +1,6 @@
+def mlc_neg(x):
+  return (-1) * x
+
 def mlc_id(x):
   return x
 
@@ -27,3 +30,9 @@ def mlc_div(a,b):
 
 def mlc_map(f, *args):
   return list(map(f, *args))
+
+def mlc_fst(x):
+  return x[0]
+
+def mlc_snd(x):
+  return x[0]

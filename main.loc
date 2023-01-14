@@ -13,6 +13,10 @@ source py from "core.py"
  , "mlc_sub" as sub
  , "mlc_mul" as mul
  , "mlc_div" as div
+ , "mlc_neg" as neg
+ -- tuples
+ , "mlc_fst" as fst
+ , "mlc_snd" as snd
  )
 
 export id
@@ -25,16 +29,23 @@ export add
 export sub
 export mul
 export div
+export neg
 
 export Real
 export Int
 export Str
 export Bool
 
+export fst
+export snd
+
 type py Real = "float"
 type py Int = "int"
 type py Str = "str"
 type py Bool = "bool"
+
+fst py :: (a, b) -> a
+snd py :: (a, b) -> b
 
 id py :: a -> a
 
@@ -54,7 +65,9 @@ sub py :: Real -> Real -> Real
 
 mul py :: Real -> Real -> Real
 
-div py :: Real ->  Real -> Real
+div py :: Real -> Real -> Real
+
+neg py :: Real -> Real
 
 
 -------------------------------------------------------------------------------
