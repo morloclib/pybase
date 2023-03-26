@@ -2,11 +2,13 @@ module pybase
 
 import conventions
 
+
 source py from "core.py"
  ( "mlc_id" as id
  , "mlc_at" as at
  , "mlc_map" as map
  , "mlc_map" as zipWith
+ , "mlc_filter" as filter
  , "mlc_fold" as fold
  , "mlc_enumerateWith" as enumerateWith
  , "mlc_add" as add
@@ -17,11 +19,18 @@ source py from "core.py"
  -- tuples
  , "mlc_fst" as fst
  , "mlc_snd" as snd
+ -- new for case study
+ , "mlc_onFst" as onFst
+ , "mlc_concat" as concat
+ , "mlc_sleep" as sleep
+ , "mlc_shard" as shard
+ , "mlc_join" as join
  )
 
 export id
 export at
 export map
+export filter
 export zipWith
 export fold
 export enumerateWith
@@ -39,6 +48,12 @@ export Bool
 export fst
 export snd
 
+export onFst
+export concat
+export sleep
+export shard
+export join
+
 type py Real = "float"
 type py Int = "int"
 type py Str = "str"
@@ -52,6 +67,8 @@ id py :: a -> a
 at py :: Int -> [a] -> a
 
 map py :: (a -> b) -> [a] -> [b]
+
+filter py :: (a -> Bool) -> [a] -> [a]
 
 zipWith py :: (a -> b -> c) -> [a] -> [b] -> [c]
 
@@ -69,6 +86,11 @@ div py :: Real -> Real -> Real
 
 neg py :: Real -> Real
 
+onFst :: (a -> a') -> (a, b) -> (a', b)
+concat :: [[a]] -> [a]
+sleep py :: Real -> a -> a 
+shard py :: Int -> [a] -> [[a]] 
+join py :: [a] -> [a] -> [a]
 
 -------------------------------------------------------------------------------
 --                 Pack and Unpack internal functions                          
