@@ -1,7 +1,6 @@
-module pybase
+module pybase (*)
 
 import conventions
-
 
 source py from "core.py"
  ( "mlc_id" as id
@@ -27,37 +26,18 @@ source py from "core.py"
  , "mlc_join" as join
  )
 
-export id
-export at
-export map
-export filter
-export zipWith
-export fold
-export enumerateWith
-export add
-export sub
-export mul
-export div
-export neg
-
-export Real
-export Int
-export Str
-export Bool
-
-export fst
-export snd
-
-export onFst
-export concat
-export sleep
-export shard
-export join
+source py
+ ( "len" as length
+ , "len" as lengthS
+ )
 
 type py Real = "float"
 type py Int = "int"
 type py Str = "str"
 type py Bool = "bool"
+
+length py :: [a] -> Int
+lengthS py :: Str -> Int
 
 fst py :: (a, b) -> a
 snd py :: (a, b) -> b
@@ -104,8 +84,6 @@ source py from "data.py"
  , "morloc_unpackMap" as unpackMap
  )
 
-export Map
-
 type py (Map key val) = "dict" key val
 
 -- These do not need to be exported (and indeed should not be)
@@ -114,3 +92,15 @@ packMap py :: pack => ([key],[val]) -> "dict" key val
 
 unpackMap :: unpack => Map key val -> ([key],[val])
 unpackMap py :: unpack => "dict" key val -> ([key],[val])
+
+filterKey :: (k -> Bool) -> Map k v -> Map k v
+filterKey :: (k -> Bool) -> Map k v -> Map k v
+
+filterVal :: (v -> Bool) -> Map k v -> Map k v
+filterVal :: (v -> Bool) -> Map k v -> Map k v
+
+mapKey :: (k -> k') -> Map k v -> Map k' v
+mapKey :: (k -> k') -> Map k v -> Map k' v
+
+mapVal :: (v -> v') -> Map k v -> Map k v'
+mapVal :: (v -> v') -> Map k v -> Map k v'
