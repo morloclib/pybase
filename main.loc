@@ -1,5 +1,15 @@
 module pybase (*)
 
+type py Real = "float"
+type py Int = "int"
+type py Str = "str"
+type py Bool = "bool"
+type py (List a) = "list" a
+type py (Tuple2 a b) = "tuple" a b
+type py (Tuple3 a b c) = "tuple" a b c
+type py (Tuple4 a b c d) = "tuple" a b c d
+type py (Tuple5 a b c d e) = "tuple" a b c d e
+
 import conventions
 
 source py from "core.py"
@@ -24,6 +34,9 @@ source py from "core.py"
  , "mlc_sleep" as sleep
  , "mlc_shard" as shard
  , "mlc_join" as join
+ -- maps
+ , "mlc_filterKey" as filterKey
+ , "mlc_filterVal" as filterVal
  )
 
 source py
@@ -31,46 +44,6 @@ source py
  , "len" as lengthS
  )
 
-type py Real = "float"
-type py Int = "int"
-type py Str = "str"
-type py Bool = "bool"
-
-length py :: [a] -> Int
-lengthS py :: Str -> Int
-
-fst py :: (a, b) -> a
-snd py :: (a, b) -> b
-
-id py :: a -> a
-
-at py :: Int -> [a] -> a
-
-map py :: (a -> b) -> [a] -> [b]
-
-filter py :: (a -> Bool) -> [a] -> [a]
-
-zipWith py :: (a -> b -> c) -> [a] -> [b] -> [c]
-
-fold py :: (b -> a -> b) -> b -> [a] -> b
-
-enumerateWith py :: (a -> Int -> b) -> [a] -> [b]
-
-add py :: Real -> Real -> Real
-
-sub py :: Real -> Real -> Real
-
-mul py :: Real -> Real -> Real
-
-div py :: Real -> Real -> Real
-
-neg py :: Real -> Real
-
-onFst :: (a -> a') -> (a, b) -> (a', b)
-concat :: [[a]] -> [a]
-sleep py :: Real -> a -> a 
-shard py :: Int -> [a] -> [[a]] 
-join py :: [a] -> [a] -> [a]
 
 -------------------------------------------------------------------------------
 --                 Pack and Unpack internal functions                          
@@ -92,15 +65,3 @@ packMap py :: pack => ([key],[val]) -> "dict" key val
 
 unpackMap :: unpack => Map key val -> ([key],[val])
 unpackMap py :: unpack => "dict" key val -> ([key],[val])
-
-filterKey :: (k -> Bool) -> Map k v -> Map k v
-filterKey :: (k -> Bool) -> Map k v -> Map k v
-
-filterVal :: (v -> Bool) -> Map k v -> Map k v
-filterVal :: (v -> Bool) -> Map k v -> Map k v
-
-mapKey :: (k -> k') -> Map k v -> Map k' v
-mapKey :: (k -> k') -> Map k v -> Map k' v
-
-mapVal :: (v -> v') -> Map k v -> Map k v'
-mapVal :: (v -> v') -> Map k v -> Map k v'
