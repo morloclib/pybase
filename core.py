@@ -82,3 +82,9 @@ def mlc_join(xs, ys):
     xsCopy = copy.copy(xs)
     xsCopy.append(ys)
     return xsCopy
+
+def mlc_filterKey(cond, d):
+    return {k:v for (k, v) in d.items() if cond(k)}
+
+def mlc_filterVal(cond, d):
+    return {k:v for (k, v) in d.items() if cond(v)}
