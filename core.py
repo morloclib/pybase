@@ -4,6 +4,9 @@
 import time
 import copy
 
+def mlc_run(f):
+    return f()
+
 def mlc_neg(x):
   return (-1) * x
 
