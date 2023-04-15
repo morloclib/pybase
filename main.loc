@@ -41,6 +41,16 @@ source py from "core.py"
  -- maps
  , "mlc_filterKey" as filterKey
  , "mlc_filterVal" as filterVal
+ -- comparators
+ , "mlc_gt" as gt
+ , "mlc_lt" as lt
+ , "mlc_ge" as ge
+ , "mlc_le" as le
+ , "mlc_eq" as eq
+ , "mlc_ne" as ne
+ , "mlc_not" as not
+ , "mlc_and" as and
+ , "mlc_or" as or
  )
 
 source py

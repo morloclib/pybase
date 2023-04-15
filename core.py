@@ -94,3 +94,31 @@ def mlc_filterKey(cond, d):
 
 def mlc_filterVal(cond, d):
     return {k:v for (k, v) in d.items() if cond(v)}
+
+
+def mlc_gt(x, y):
+	return x > y
+
+def mlc_lt(x, y):
+	return x < y
+
+def mlc_ge(x, y):
+	return x >= y
+
+def mlc_le(x, y):
+	return x <= y
+
+def mlc_eq(x, y):
+	return x == y
+
+def mlc_ne(x, y):
+	return x != y
+
+def mlc_not(x):
+	return (not x)
+
+def mlc_and(x, y):
+	return (x and y)
+
+def mlc_or(x, y):
+	return (x or y)
