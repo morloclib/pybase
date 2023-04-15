@@ -29,6 +29,9 @@ source py from "core.py"
  -- tuples
  , "mlc_fst" as fst
  , "mlc_snd" as snd
+ , "mlc_fst" as fst3 -- same as fst in Python
+ , "mlc_snd" as snd3 -- same as snd in Python
+ , "mlc_thr3" as thr3
  -- new for case study
  , "mlc_onFst" as onFst
  , "mlc_concat" as concat

@@ -49,6 +49,9 @@ def mlc_fst(x):
 def mlc_snd(x):
   return x[0]
 
+def mlc_thr3(x):
+  return x[2]
+
 #  onFst :: (a -> a') -> (a, b) -> (a', b)
 def mlc_onFst(f, x):
     return(f(x[0]))
