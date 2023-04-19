@@ -4,6 +4,7 @@ type py Real = "float"
 type py Int = "int"
 type py Str = "str"
 type py Bool = "bool"
+type py Unit = "None"
 type py (List a) = "list" a
 type py (Tuple2 a b) = "tuple" a b
 type py (Tuple3 a b c) = "tuple" a b c
