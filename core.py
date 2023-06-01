@@ -4,6 +4,9 @@
 import time
 import copy
 
+def mlc_elem(x, xs):
+    return x in xs
+
 def mlc_run(f):
     return f()
 
@@ -122,3 +125,17 @@ def mlc_and(x, y):
 
 def mlc_or(x, y):
 	return (x or y)
+
+def mlc_readMap(filename):
+    x = dict()
+    with open(filename, "r") as f:
+        for line in f.readlines():
+            (k,v) = line.split("\t")
+            x[k] = v
+        return x
+
+def mlc_seq(a, b):
+    return b
+
+def mlc_const(a, b):
+    return a
