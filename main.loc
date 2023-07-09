@@ -36,6 +36,8 @@ source py from "core.py"
  , "mlc_filterKey" as filterKey
  , "mlc_filterVal" as filterVal
  , "mlc_readMap" as readMap
+ , "mlc_keys" as keys
+ , "mlc_vals" as vals
  -- comparators
  , "mlc_gt" as gt
  , "mlc_lt" as lt

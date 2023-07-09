@@ -98,6 +98,11 @@ def mlc_filterKey(cond, d):
 def mlc_filterVal(cond, d):
     return {k:v for (k, v) in d.items() if cond(v)}
 
+def mlc_keys(d):
+    return list(d.keys())
+
+def mlc_vals(d):
+    return list(d.values())
 
 def mlc_gt(x, y):
 	return x > y
