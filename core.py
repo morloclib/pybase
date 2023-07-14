@@ -57,13 +57,18 @@ def mlc_thr3(x):
 
 #  onFst :: (a -> a') -> (a, b) -> (a', b)
 def mlc_onFst(f, x):
-    return(f(x[0]))
+    return (f(x[0]), x[1])
+
+#  onSnd :: (b -> b') -> (a, b) -> (a, b')
+def mlc_onSnd(f, x):
+    return (x[0], f(x[1]))
 
 #  concat :: [[a]] -> [a]
 def mlc_concat(xss):
     ys = []
     for xs in xss: 
-        ys.append(xs)
+        for x in xs:
+            ys.append(x)
     return ys
 
 #  sleep py :: Real -> a -> a

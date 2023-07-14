@@ -28,6 +28,7 @@ source py from "core.py"
  , "mlc_thr3" as thr3
  -- new for case study
  , "mlc_onFst" as onFst
+ , "mlc_onSnd" as onSnd
  , "mlc_concat" as concat
  , "mlc_sleep" as sleep
  , "mlc_shard" as shard
