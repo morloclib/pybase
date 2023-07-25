@@ -8,6 +8,7 @@ source py from "core.py"
  , "mlc_at" as at
  , "mlc_map" as map
  , "mlc_map" as zipWith
+ , "mlc_append" as append
  , "mlc_filter" as filter
  , "mlc_fold" as fold
  , "mlc_enumerateWith" as enumerateWith

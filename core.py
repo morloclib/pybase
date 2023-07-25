@@ -43,6 +43,10 @@ def mlc_div(a,b):
 def mlc_map(f, *args):
   return list(map(f, *args))
 
+def mlc_append(xs, x):
+    xs.append(x)
+    return xs
+
 def mlc_filter(f, xs):
     return [x for x in xs if f(x)]
 
