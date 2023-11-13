@@ -6,6 +6,7 @@ source py from "core.py"
  ( "mlc_run" as run
  , "mlc_id" as id
  , "mlc_at" as at
+ , "mlc_ifelse" as ifelse
  , "mlc_map" as map
  , "mlc_map" as zipWith
  , "mlc_append" as append
