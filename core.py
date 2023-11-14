@@ -77,8 +77,7 @@ def mlc_onSnd(f, x):
 def mlc_concat(xss):
     ys = []
     for xs in xss: 
-        for x in xs:
-            ys.append(x)
+        ys.extend(xs)
     return ys
 
 #  sleep py :: Real -> a -> a
@@ -88,23 +87,19 @@ def mlc_sleep(n, a):
 
 #  shard py :: Int -> [a] -> [[a]]
 def mlc_shard(chunkSize, xs):
-    if(len(xs) == 0):
-        return [[]]
-    else:
-        xss = []
-        for i in range(1, len(xs) + 1):
-            if i % chunkSize == 0:
-                xss.append(xs[i - chunkSize: i])
-        size = chunkSize * (len(xs) // chunkSize)
-        if size < len(xs):
-            xss.append(xs[size - 1: len(xs)])
+    xss = [[]]
+    for x in xs:
+        if len(xss[-1]) < chunkSize:
+            xss[-1].append(x)
+        else:
+            xss.append([x])
     return xss
 
 #  join py :: [a] -> [a] -> [a]
 def mlc_join(xs, ys):
     # this function should not mutate the data
     xsCopy = copy.copy(xs)
-    xsCopy.append(ys)
+    xsCopy.extend(ys)
     return xsCopy
 
 def mlc_filterKey(cond, d):
