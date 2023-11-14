@@ -34,6 +34,12 @@ source py from "core.py"
  , "mlc_concat" as concat
  , "mlc_sleep" as sleep
  , "mlc_shard" as shard
+ , "mlc_head" as head -- [a] -> a
+ , "mlc_tail" as tail -- [a]_{n} -> [a]_{n-1}
+ , "mlc_init" as init -- [a]_{n>i} -> [a]_{n-i}
+ , "mlc_last" as last -- [a] -> a
+ , "mlc_take" as take -- i:Int -> [a]_{n>i} -> [a]_{n=i}
+ , "mlc_drop" as drop -- i:Int -> [a]_{n>i} -> [a]_{n-i}
  , "mlc_join" as join
  -- maps
  , "mlc_filterKey" as filterKey

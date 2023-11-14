@@ -95,6 +95,42 @@ def mlc_shard(chunkSize, xs):
             xss.append([x])
     return xss
 
+#  [a] -> a
+def mlc_head(xs):
+    if(len(xs) == 0):
+        raise ValueError("Empty list in head operation")
+    else:
+        return xs[0]
+
+# [a]_{n} -> [a]_{n-1}
+def mlc_tail(xs):
+    if(len(xs) == 0):
+        raise ValueError("Empty list in tail operation")
+    else:
+        return xs[1:]
+
+# [a] -> a
+def mlc_last(xs):
+    if(len(xs) == 0):
+        raise ValueError("Empty list in last operation")
+    else:
+        return xs[-1]
+
+# i:Int -> [a]_{n>i} -> [a]_{n=i}
+def mlc_take(i, xs): 
+    return xs[0:i]
+
+# i:Int -> [a]_{n; n>i} -> [a]_{m; m <= n-i}
+def mlc_drop(i, xs):
+    return xs[i:]
+
+#  [a]_{n>i} -> [a]_{n-i}
+def mlc_init(xs):
+    if(len(xs) == 0):
+        raise ValueError("Empty list in init operation")
+    else:
+        return xs[0:-1]
+
 #  join py :: [a] -> [a] -> [a]
 def mlc_join(xs, ys):
     # this function should not mutate the data
