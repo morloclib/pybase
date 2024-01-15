@@ -182,7 +182,7 @@ def mlc_readMap(filename):
     with open(filename, "r") as f:
         for line in f.readlines():
             (k,v) = line.split("\t")
-            x[k] = v
+            x[k.strip()] = v.strip()
         return x
 
 def mlc_seq(a, b):
