@@ -72,13 +72,11 @@ source py
 -- be exported.
 -------------------------------------------------------------------------------
 
-source py from "data.py"
- ( "morloc_packMap" as packMap
- , "morloc_unpackMap" as unpackMap
- )
 
 type Py => (Map key val) = "dict" key val
 
--- These do not need to be exported (and indeed should not be)
-packMap :: pack => ([key],[val]) -> Map key val
-unpackMap :: unpack => Map key val -> ([key],[val])
+instance Packable ([key],[val]) (Map key val) where
+  source py from "data.py"
+   ( "morloc_packMap" as pack
+   , "morloc_unpackMap" as unpack
+   )
