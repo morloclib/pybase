@@ -14,11 +14,6 @@ source py from "core.py"
  , "mlc_fold" as fold
  , "mlc_enumerateWith" as enumerateWith
  , "mlc_elem" as elem
- , "mlc_add" as add
- , "mlc_sub" as sub
- , "mlc_mul" as mul
- , "mlc_div" as div
- , "mlc_neg" as neg
  -- combinator
  , "mlc_seq" as seq
  , "mlc_const" as const
@@ -48,25 +43,108 @@ source py from "core.py"
  , "mlc_keys" as keys
  , "mlc_vals" as vals
  -- comparators
- , "mlc_gt" as gt
- , "mlc_lt" as lt
- , "mlc_ge" as ge
- , "mlc_le" as le
- , "mlc_eq" as eq
- , "mlc_ne" as ne
  , "mlc_not" as not
  , "mlc_and" as and
  , "mlc_or" as or
  )
 
-source py
- ( "len" as length
- , "len" as lengthS
- )
+
+
+instance Show Int where
+  source Py from "core.py" ("mlc_show" as show)
+
+instance Show Real where
+  source Py from "core.py" ("mlc_show" as show)
+
+instance Show Str where
+  show x = x
+
+
+instance Sized [a] where
+  source Py ("len" as size)
+
+instance Sized Str where
+  source Py ("len" as size)
+
+
+instance Ord Int where
+  source Py from "core.py"
+    ( "mlc_gt" as gt
+    , "mlc_lt" as lt
+    , "mlc_ge" as ge
+    , "mlc_le" as le
+    )
+
+instance Ord Real where
+  source Py from "core.py"
+    ( "mlc_gt" as gt
+    , "mlc_lt" as lt
+    , "mlc_ge" as ge
+    , "mlc_le" as le
+    )
+
+instance Ord Int where
+  source Py from "core.py"
+    ( "mlc_gt" as gt
+    , "mlc_lt" as lt
+    , "mlc_ge" as ge
+    , "mlc_le" as le
+    )
+
+
+instance Eq Real where
+  source Py from "core.py"
+    ( "mlc_eq" as eq
+    , "mlc_ne" as ne
+    )
+
+instance Eq Int where
+  source Py from "core.py"
+    ( "mlc_eq" as eq
+    , "mlc_ne" as ne
+    )
+
+instance Eq Str where
+  source Py from "core.py"
+    ( "mlc_eq" as eq
+    , "mlc_ne" as ne
+    )
+
+instance Addable Int where
+  source Py from "core.py"
+   ( "mlc_add" as add
+   , "mlc_mul" as mul
+   , "mlc_mod" as mod
+   , "mlc_div" as div
+   )
+  zero = 0
+  one = 1
+
+instance Subtractable Int where
+  source Py from "core.py"
+   ( "mlc_neg" as neg
+   , "mlc_sub" as sub
+   )
+
+instance Addable Real where
+  source Py from "core.py"
+   ( "mlc_add" as add
+   , "mlc_mul" as mul
+   , "mlc_mod" as mod
+   , "mlc_div" as div
+   )
+  zero = 0.0
+  one = 1.0
+
+instance Subtractable Real where
+  source Py from "core.py"
+    ( "mlc_neg" as neg
+    , "mlc_sub" as sub
+    )
 
 
 -------------------------------------------------------------------------------
---                 Pack and Unpack internal functions                          
+--                 Pack and Unpack internal functions
 -- These functions are used by morloc internally for (de)serialization of types
 -- that cannot be automatically (de)serialized into/from JSON. They should not
 -- be exported.
