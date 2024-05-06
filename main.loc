@@ -158,3 +158,10 @@ instance Packable ([key],[val]) (Map key val) where
    ( "morloc_packMap" as pack
    , "morloc_unpackMap" as unpack
    )
+
+
+instance Packable (Int) Unit where
+  source Cpp from "data.py"
+   ( "morloc_packUnit" as pack
+   , "morloc_unpackUnit" as unpack
+   )
