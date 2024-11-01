@@ -60,7 +60,7 @@ def mlc_fst(x):
   return x[0]
 
 def mlc_snd(x):
-  return x[0]
+  return x[1]
 
 def mlc_thr3(x):
   return x[2]
