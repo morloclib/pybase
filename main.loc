@@ -42,6 +42,7 @@ source py from "core.py"
  , "mlc_readMap" as readMap
  , "mlc_keys" as keys
  , "mlc_vals" as vals
+ , "dict" as fromList
  -- comparators
  , "mlc_not" as not
  , "mlc_and" as and
